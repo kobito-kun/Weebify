@@ -18,3 +18,8 @@ public
 
 tmp
 ./tmp
+
+.ftpquota
+db.sqlite3
+.htaccess
+passenger_wsgi.py
