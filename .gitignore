@@ -23,7 +23,13 @@ tmp
 db.sqlite3
 .htaccess
 passenger_wsgi.py
+.htaccess
 
+/.ftpquota
+/db.sqlite3
+/.htaccess
+/passenger_wsgi.py
+/.htaccess
 
 ./ftpquota
 ./db.sqlite3
