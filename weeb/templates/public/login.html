@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title">✨ Weebify - Sign Up</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css" />	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">	
+</head>
+
+<body class="bg-white flex-col flex items-center justify-center" style="font-family: 'Roboto Condensed', sans-serif;">
+<header class="p-10 grid text-center lg:grid-cols-2 grid-cols-1 bg-gray-200 border-b-2 w-full border-gray-300 min-h-screen">
+	<div class="text-center flex-col flex item-center justify-center my-10">
+		<a href="/" class="text-blue-600 text-2xl font-black">✨ Weebify</a>
+		<h3 class="m-4 text-6xl font-bold text-6xl">Welcome to the <span class="text-blue-600">login</span> page.</h3>
+		<h3 class="text-lg font-bold text-gray-600">Privacy is all yours, we don't sell information. (atleast not now).</h3>
+	</div>
+	<form class="flex flex-col items-center justify-center" action='' method='POST'>
+        {% csrf_token %}
+        {% if message %}
+        <ul class="text-red-700 text-left bg-white p-8 rounded-lg my-4 font-bold">
+            {{message}}
+        </ul>
+        {% endif %}
+        <div class="flex flex-wrap items-center justify-center">
+            <div class="flex flex-col text-left">
+                <label class="ml-2 font-bold float-left" for="username">Username:</label>
+                <input class="m-2 rounded-lg shadow-lg py-4 px-8 focus:outline-none" placeholder="Username" type="text" name="username" maxlength="150" autofocus="" required="" id="username">
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center">
+            <div class="flex flex-col text-left">
+                <label class="ml-2 font-bold" for="password1">Password:</label>
+                <input autocomplete="new-password" class="m-2 rounded-lg shadow-lg py-4 px-8 focus:outline-none" placeholder="Password" type="password" name="password" maxlength="150" autofocus="" required="" id="password">
+            </div>
+        </div>
+        <p class="text-gray-500">No account? <a href="/register" class="text-gray-900">Sign Up here.</a></p>
+        <button class="bg-blue-500 w-1/4 py-2 px-4 rounded-full shadow-lg text-white font-bold hover:scale-110 my-2 transform duration-300 focus:ouline-none focus:bg-blue-400" type="submit" name="submit">Login</button>
+    </form>
+</header>
+
+<script>
+const redirectDashboard = () => {
+	window.location.href = "/dashboard"
+}
+
+</script>
+
+</body>
+
+</html>

@@ -17,8 +17,12 @@
 		<h1 class="text-blue-600 text-2xl font-black">✨ Weebify</h1>
 		<h3 class="m-4 text-6xl font-bold text-6xl">Storage for your <span class="text-blue-600">read comics.</span> Easy. Fast. Quick.</h3>
 		<div class="m-4">
+			{% if user.is_authenticated %}
+			<button onclick="redirectDashboard()" class="bg-blue-500 px-4 py-2 rounded-lg shadow-lg font-bold text-2xl text-white hover:scale-105 transform duration-300 focus:outline-none focus:bg-blue-400 ">Dashboard</button>
+			{% else %}
 			<button onclick="redirectRegister()" class="bg-blue-500 px-4 py-2 rounded-lg shadow-lg font-bold text-2xl text-white hover:scale-105 transform duration-300 focus:outline-none focus:bg-blue-400 ">Sign Up</button>
 			<button onclick="redirectLogin()" class="bg-blue-500 px-4 py-2 rounded-lg shadow-lg font-bold text-2xl text-white hover:scale-105 transform duration-300 focus:outline-none focus:bg-blue-400 ">Log In</button>
+			{% endif %}
 		</div>
 	</div>
 	<img class="w-auto mx-auto block invisible h-2 lg:h-auto lg:visible" src="https://kobi.lol/images/my_universe.svg" alt="Welcome To My Site">
@@ -50,9 +54,9 @@ const redirectRegister = () => {
 const redirectUser = user => {
 	window.location.href = `/@${user}`
 }
-$(function() {
-	$('#github').repo({ user: 'darcyclarke', name: 'Repo.js' })
-});
+const redirectDashboard = () => {
+	window.location.href = `/dashboard`
+}
 </script>
 
 </body>

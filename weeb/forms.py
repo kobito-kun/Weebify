@@ -1,12 +1,12 @@
 from django.contrib.auth.forms import UserCreationForm
-from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import *
+from .models import Post
 
-class PostForm(forms.ModelForm):
+class PostForm(ModelForm):
 	class Meta:
 		model = Post
-		fields = ['title', 'description']
+		fields = ['title', 'image', 'type']
 
 class CreateUserForm(UserCreationForm):
 	class Meta:

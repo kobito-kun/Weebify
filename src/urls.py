@@ -30,6 +30,11 @@ urlpatterns = [
     path('login/', loginPage, name="login"),
     path('logout/', logoutPage, name="logout"),
 
+    path('dashboard/', dashboardPage, name="dashboard"),
+    path('dashboard/posts', postsDashboardPage, name="dashboardedit"),
+    path('dashboard/posts/add', addPostDashboardPage, name="dashboardadd"),
+    path('dashboard/posts/delete/<int:id>', deleteDashboardPostPage, name="deletePost"),
+
     #scraped
     path('section/<str:type>', ViewType),
     path('post/<int:postID>', ViewPost),
