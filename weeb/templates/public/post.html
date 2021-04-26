@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title"></title>
+	<link rel="stylesheet" type="text/css" href="https://kobi.lol/css/manga.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="flex flex-col justify-items-center items-center mt-1 px-10 ">
+		<div class="flex bg-gradient-to-tr from-yellow-500 to-blue-600 p-2 rounded-full shadow-lg mb-5 ">
+			<a class="block bg-white rounded-full p-1 ">
+				<img src="https://kobi.lol/images/Mika.webp " class="w-50 h-50 rounded-full border-black ">
+			</a>
+		</div>
+	</div>
+
+	<p class="text-center">YOU'RE VIEWING: <strong>{{post.title | upper}}</strong></p>
+	<hr class="w-2/4 block mx-auto border-black my-4">
+	<div class="grid grid-cols-1 lg:grid-cols-2 mx-20">
+		<center><img class="w-60" src="/media/{{post.image}}" alt="{{post.title}}"></center>
+		<div>
+			<h1>{{post.description}}</h1>
+			<h1>{{post.date}}</h1>
+			<button class="bg-gradient-to-tr from-purple-500 to-blue-500 border shadow-lg rounded-xl py-2 px-4"><a href="/section/{{post.type}}">{{post.type}}</a></button>
+		</div>
+	</div>
+</body>
+
+</html>

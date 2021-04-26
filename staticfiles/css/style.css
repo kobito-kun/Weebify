@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+#main-information{
+	text-align: center;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+	padding: 2%;
+}
+#the-stuff-inside{
+}
+#main-information img{
+	border-radius: 50%;
+	border: 2px solid black;
+	width: 10%;
+}
+body #container{
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: 10%;
+	margin-left: 10%;
+}
+.box{
+	margin: 25px;
+	flex: 1 0 19%;
+	text-align: center;
+	padding: 5px;
+}
+@media only screen and (max-width: 1000px) {
+	.box{
+		flex: 1 0 40%;
+	}
+}
+.box h3{
+	text-decoration: none;
+	color: black;
+}
+.shadow{
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+}
+.box img{
+	width: 150px;
+}

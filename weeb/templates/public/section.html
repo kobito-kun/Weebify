@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title">✨ Weebify - {{user}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css" />	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">	
+</head>
+
+<body class="bg-white flex-col flex items-center justify-center" style="font-family: 'Roboto Condensed', sans-serif;">
+<header class="p-10 grid text-center lg:grid-cols-2 grid-cols-1 bg-gray-200 border-b-2 w-full border-gray-300">
+	<div class="text-center flex-col flex item-center justify-center">
+		<a href="/" class="text-blue-600 text-2xl font-black">✨ Weebify</a>
+		<h3 class="m-4 text-6xl font-bold text-6xl">You're viewing <span class="text-blue-600">{{user}}'s</span> storage.</h3>
+	</div>
+	<img class="w-auto mx-auto block invisible h-2 lg:h-auto lg:visible" src="https://kobi.lol/images/my_universe.svg" alt="Welcome To My Site">
+</header>
+
+<div class="h-auto p-20">
+	<h2 class="text-4xl font-bold text-center" id="titlemain">Total {{type.capitalize}} {{posts.count}} Stored:</h2>
+
+    <select name="filterType" id="filterType" class="mx-auto block border-2 rounded-lg shadow-lg m-2 p-2">
+		<option value="">Filter</option>
+        <option value="all">All</option>
+        <option value="manga">Manga</option>
+        <option value="webtoon">Webtoon</option>
+        <option value="manhwa">Manhwa</option>
+        <option value="anime">Anime</option>
+    </select>
+
+	<div class="flex flex-col items-center justify-center">
+        <ul id="result" class="lg:flex lg:flex-wrap lg:items-center lg:justify-center">
+            {% for data in posts %}
+            <li class="flex justify-between lg:flex-row items-center bg-white mt-2 lg:m-4 p-2 hover:shadow-lg rounded cursor-pointer transition bg-gray-100">
+                <div class="flex lg:flex-col ml-2">
+                    <div class="rounded-full lg:mx-auto lg:flex lg:justify-center lg:items-center relative overflow-hidden lg:h-80 lg:w-full bg-gray-300 lg:rounded-lg lg:border-0 w-12 h-12 border border-black">
+                        <img src="/media/{{data.image}}" class="rounded-full lg:rounded-lg mx-auto lg:w-60 block" alt="{{data.title}}">
+                    </div>
+                    <div class="flex flex-col lg:text-center ml-2">
+                        <span class="w-60 lg:mx-auto truncate font-bold text-black">{{data.title}}</span>
+                        <span class="text-sm text-gray-400 truncate w-80">{{data.date}} - {{data.type}}</span>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+<script>
+const redirectDashboard = () => {
+	window.location.href = "/dashboard"
+}
+input = document.getElementById("filterType")
+
+input.addEventListener('change', (event) => {
+    if(event.target.value !== "all"){
+        window.location.href = `/@{{user}}/${event.target.value}`
+    }
+	window.location.href = `/@{{user}}`
+})
+
+</script>
+
+</body>
+
+</html>

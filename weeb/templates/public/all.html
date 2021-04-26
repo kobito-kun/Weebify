@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title"></title>
+	<link rel="stylesheet" type="text/css" href="https://kobi.lol/css/manga.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="flex flex-col justify-items-center items-center mt-1 px-10 ">
+		<div class="flex bg-gradient-to-tr from-yellow-500 to-blue-600 p-2 rounded-full shadow-lg mb-5 ">
+			<a class="block bg-white rounded-full p-1 ">
+				<img src="https://kobi.lol/images/Mika.webp " class="w-50 h-50 rounded-full border-black ">
+			</a>
+		</div>
+	</div>
+
+	<p class="text-center">YOU'RE VIEWING: <strong>ALL : {{count}}</strong></p>
+	<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mx-20 justify-items-center items-center">
+		{% for p in posts %}
+		<div class="border border-black p-3 text-center shadow-lg w-60 h-auto mx-4 mb-4">
+			<a href="/post/{{p.id}}">
+			<center>
+			<img class="w-auto h-60 " src="/media/{{p.image}}">
+			</center>
+			<h3>{{p.title}}</h3>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</body>
+
+</html>
