@@ -1,15 +1,20 @@
-# How to setup.
+# Weebify Project
+A project made to store comics and viewed items in a simple manner, with comprehending admin panel and responsive design.
 
-Requirements:
-- Python 3+
-- Pip (Latest Recommended)
+<img src="https://kobi.lol/assets/weebify.webp" alt="Weebify" />
 
-1.) Run `pip install -f requirements.txt`
+# Technology Used
 
-2.) Run `python manage.py makemigrations`
+- Django
+- TailwindCSS
+- HTML5
+- CSS3
+- JavaScript
 
-3.) Run `python manage.py migrate`
+# Noteable Functions / Features
 
-4.) Run `python manage.py runserver` 
-
-You're Done!
+- Dashboard for management
+- Specific user page
+- Post filering
+- User management login / signup
+- More...
